@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.main-block {
+    height: 80vh;
+    width: 100vw;
+}
+
+.my-block {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 10vw;
+    font-weight: 900;
+}
