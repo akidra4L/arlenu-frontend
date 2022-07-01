@@ -1,15 +1,33 @@
-import React from "react";
+import React, { Fragment } from "react";
+import Faq from "react-faq-component";
 
-const Faq = () => {
+import data from "./data";
+
+const FAQ = () => {
     return (
-        <div className="main-block">
-            <div className="my-block">
-                <h1>
-                    1000 - 7
-                </h1>
-            </div>
+        <div className="faq-block"> 
+            <Fragment>
+                <Faq 
+                    data={data}
+                    styles={{
+                        bgColor: "white",
+                        rowTitleColor: "black",
+                        rowTitleTextSize: "30px",
+                        rowContentColor: "black",
+                        rowContentTextSize: "16px",
+                        rowContentPaddingTop: "10px",
+                        rowContentPaddingBottom: "10px",
+                        rowContentPaddingLeft: "50px",
+                        rowContentPaddingRight: "150px",
+                        arrowColor: "black"
+                    }}
+                    config={{
+                        animate: true
+                    }}
+                />
+            </Fragment>
         </div>
     )
 }
 
-export default Faq;
+export default FAQ;
