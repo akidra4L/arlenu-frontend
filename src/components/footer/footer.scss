@@ -1,0 +1,14 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgb(220, 220, 220);
+    border-radius: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    &-text {
+        font-size: 14px;
+        text-align: center;
+    }
+}

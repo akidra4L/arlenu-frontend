@@ -1,0 +1,41 @@
+.nav {
+    &-logo {
+        &-wrapper {
+            &-text {
+                padding: 1.25rem;
+                white-space: nowrap;
+            }
+
+            & .text {
+                &-link {
+                    & a {
+                        font-weight: 600;
+                        font-size: 50px;
+                        line-height: 2rem;
+                    }
+                }
+            }
+        }
+    }
+
+    &-user {
+        padding: 1.25rem;
+        display: flex;
+        
+        &-header {
+            &-span {
+                font-size: 0.875rem;
+                line-height: 1.25rem;
+                display: block;
+
+            }
+        }
+    }
+}
+
+.collapse {
+    &-text {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+}

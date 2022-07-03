@@ -1,6 +1,6 @@
 import React from "react";
 
-const MyProjects = () => {
+export const MyProjects = () => {
     return (
         <div className="main-block">
             <div className="my-block">
@@ -11,5 +11,3 @@ const MyProjects = () => {
         </div>
     )
 };
-
-export default MyProjects;

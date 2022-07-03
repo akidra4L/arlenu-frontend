@@ -1,0 +1,39 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import './App.scss';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    & main {
+        min-height: 80vh;
+    }
+}
+
+.faq-block {
+    height: 80vh;
+    width: 100%;
+    padding: 50px 50px 0 50px;
+}
+
+h1 {
+    font-size: 10vw;
+    font-weight: 900;
+}
+
+@media screen and (max-width: 462px){
+    .faq-block {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .faq-block .row-title-text {
+        font-size: 20px;
+    }
+}

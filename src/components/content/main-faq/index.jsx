@@ -3,7 +3,7 @@ import Faq from "react-faq-component";
 
 import data from "./data";
 
-const FAQ = () => {
+export const FAQ = () => {
     return (
         <div className="faq-block"> 
             <Fragment>
@@ -29,5 +29,3 @@ const FAQ = () => {
         </div>
     )
 }
-
-export default FAQ;

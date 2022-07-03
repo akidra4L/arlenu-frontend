@@ -1,6 +1,6 @@
 import React from "react";
 
-const Add = () => {
+export const Add = () => {
     return (
         <div className="main-block">
             <div className="my-block">
@@ -11,5 +11,3 @@ const Add = () => {
         </div>
     )
 }
-
-export default Add;
