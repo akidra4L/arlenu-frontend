@@ -17,7 +17,7 @@ export const NavBar = () => {
             <div className="nav-logo-wrapper flex flex-row">
               <span className="nav-logo-wrapper-text text">
                 <a href="#" className="text-link">
-                  <Link to="/projects">ärlenu</Link>
+                  <Link to="/">ärlenu</Link>
                 </a>
               </span>
             </div>

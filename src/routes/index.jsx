@@ -7,7 +7,7 @@ import { MyProjects } from "../components/content/my-projects";
 
 export const RouteList = () => (
   <Routes>
-    <Route path="/projects" element={<Main />} />
+    <Route path="/" element={<Main />} />
 
     <Route path="/add" element={<Add />} />
 

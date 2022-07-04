@@ -6,7 +6,7 @@ export const NavbarCollapse = () => {
     <Navbar.Collapse>
       <Navbar.Link href="#">
         <span className="collapse-text">
-          <Link to="/projects">проекты</Link>
+          <Link to="/">проекты</Link>
         </span>
       </Navbar.Link>
       <Navbar.Link href="#">
