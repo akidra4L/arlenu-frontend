@@ -1,0 +1,15 @@
+.faq-block {
+    height: 80vh;
+    width: 100%;
+    padding: 50px 50px 0 50px;
+}
+
+@media screen and (max-width: 462px){
+    .faq-block {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .faq-block .row-title-text {
+        font-size: 20px;
+    }
+}

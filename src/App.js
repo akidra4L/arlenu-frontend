@@ -1,7 +1,7 @@
-import { NavBar } from './components/navbar';
-import { Footer } from './components/footer';
+import { NavBar } from "./components/navbar";
+import { Footer } from "./components/footer";
 import { RouteList } from "./routes";
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from "react-router-dom";
 
 const App = () => (
   <BrowserRouter>
@@ -11,6 +11,6 @@ const App = () => (
     </main>
     <Footer />
   </BrowserRouter>
-)
+);
 
 export default App;
