@@ -4,21 +4,21 @@ import { NavLink, Link } from "react-router-dom";
 export const NavbarCollapse = () => {
   return (
     <Navbar.Collapse>
-      <Navbar.Link href="#">
-        <span className="collapse-text">
-          <Link to="/">проекты</Link>
-        </span>
-      </Navbar.Link>
-      <Navbar.Link href="#">
-        <span className="collapse-text">
-          <Link to="/add">добавить</Link>
-        </span>
-      </Navbar.Link>
-      <Navbar.Link href="#">
-        <span className="collapse-text">
-          <Link to="/faq">faq</Link>
-        </span>
-      </Navbar.Link>
+      <Link to="/">
+        <Navbar.Link href="#">
+          <span className="collapse-text">проекты</span>
+        </Navbar.Link>
+      </Link>
+      <Link to="/add">
+        <Navbar.Link href="#">
+          <span className="collapse-text">добавить</span>
+        </Navbar.Link>
+      </Link>
+      <Link to="/faq">
+        <Navbar.Link href="#">
+          <span className="collapse-text">faq</span>
+        </Navbar.Link>
+      </Link>
     </Navbar.Collapse>
   );
 };

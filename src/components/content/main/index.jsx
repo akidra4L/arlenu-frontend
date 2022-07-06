@@ -7,21 +7,27 @@ export const Main = () => {
       <div className="main-wrapper">
         <div className="main-wrapper-content">
           <img src={tshirt} alt="tshirt" />
+          <p>@nickname</p>
         </div>
         <div className="main-wrapper-content">
           <img src={tshirt} alt="tshirt" />
+          <p>@nickname</p>
         </div>
         <div className="main-wrapper-content">
           <img src={tshirt} alt="tshirt" />
+          <p>@nickname</p>
         </div>
         <div className="main-wrapper-content">
           <img src={tshirt} alt="tshirt" />
+          <p>@nickname</p>
         </div>
         <div className="main-wrapper-content">
           <img src={tshirt} alt="tshirt" />
+          <p>@nickname</p>
         </div>
         <div className="main-wrapper-content">
           <img src={tshirt} alt="tshirt" />
+          <p>@nickname</p>
         </div>
       </div>
     </div>
