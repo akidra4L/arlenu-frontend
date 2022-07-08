@@ -11,21 +11,36 @@ export const NavBar = () => {
   const currentWindowSize = useWindowSize();
 
   return (
-      <header className="nav">
-        <Navbar fluid={true} rounded={true}>
-          <Navbar.Brand className="nav-logo">
-            <div className="nav-logo-wrapper flex flex-row">
-              <span className="nav-logo-wrapper-text text">
-                <a href="#" className="text-link">
-                  <Link to="/">ärlenu</Link>
-                </a>
-              </span>
-            </div>
-          </Navbar.Brand>
-          <Navbar.Toggle />
-          {currentWindowSize.width >= 720 && <NavbarCollapse />}
+    <header className="nav">
+      <Navbar fluid={true} rounded={true}>
+        <Navbar.Brand className="nav-logo">
+          <div className="nav-logo-wrapper flex flex-row">
+            <span className="nav-logo-wrapper-text text">
+              <a href="#" className="text-link">
+                <Link to="/">ärlenu</Link>
+              </a>
+            </span>
+          </div>
+        </Navbar.Brand>
+        <Navbar.Toggle />
+        {currentWindowSize.width >= 720 && <NavbarCollapse />}
 
-          <div className="nav-user">
+        <div className="nav-user">
+          <Dropdown inline={true} label={<IconProfile alt="User settings" />}>
+            <Link to="/sign-in">
+              <Dropdown.Item>
+                <span className="nav-user-header-span">Войти</span>
+              </Dropdown.Item>
+            </Link>
+            <Link to="/sign-up">
+              <Dropdown.Item>
+                <span className="nav-user-header-span">Регистрация</span>
+              </Dropdown.Item>
+            </Link>
+          </Dropdown>
+        </div>
+
+        {/* <div className="nav-user">
             <Dropdown inline={true} label={<IconProfile alt="User settings" />}>
               <Dropdown.Header className="nav-user-header">
                 <span className="nav-user-header-span">
@@ -40,9 +55,9 @@ export const NavBar = () => {
               </Dropdown.Item>
               <Dropdown.Item>Выйти</Dropdown.Item>
             </Dropdown>
-          </div>
-          {currentWindowSize.width < 720 && <NavbarCollapse />}
-        </Navbar>
-      </header>
+          </div> */}
+        {currentWindowSize.width < 720 && <NavbarCollapse />}
+      </Navbar>
+    </header>
   );
 };

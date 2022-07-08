@@ -1,0 +1,39 @@
+.sign {
+    padding-top: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &-login {
+            padding: 5px;
+        }
+
+        &-password {
+            padding: 5px;
+        }
+
+        input {
+            border-radius: 10px;
+        }
+
+        #btn {
+            width: 205px;
+            margin: 10px;
+            padding: 5px;
+            border-radius: 10px;
+            background-color: rgb(43, 113, 234);
+            opacity: 1;
+            color: white;
+        }
+        #btn:hover {
+            opacity: 0.9;
+        }
+
+    }
+}

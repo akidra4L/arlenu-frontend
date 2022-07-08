@@ -3,14 +3,13 @@ const data = {
   rows: [
     {
       title: "Для чего этот сайт?",
-      content: "- текст"
+      content: "- текст",
     },
     {
       title: "Для кого этот сайт?",
-      content:
-        "- текст"
+      content: "- текст",
     },
-  ]
+  ],
 };
 
 export default data;
