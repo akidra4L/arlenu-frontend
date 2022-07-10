@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { getItems } from "../../../functions";
 
-import URL from "../../../config/url";
 import tshirt from "../../../assets/shirt.jpg";
 
 export const Main = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    axios.get(URL).then((response) => {
-      setItems(response.data);
-    });
+    const fetchData = async () => {
+      const result = await getItems();
+      setItems(result);
+    };
+    fetchData();
   }, []);
 
   return (
@@ -18,7 +19,9 @@ export const Main = () => {
       <div className="main-wrapper">
         {items.map((item) => (
           <div className="main-wrapper-content">
-            <img src={tshirt} alt="tshirt" />
+            <div className="main-wrapper-content-image">
+              <img src={item.image} alt="image" />
+            </div>
             <div className="main-wrapper-content-user">
               <div className="main-wrapper-content-user-nickname">
                 @{item.nickname}
@@ -27,9 +30,7 @@ export const Main = () => {
                 {item.title}
               </div>
             </div>
-            <div className="main-wrapper-content-text">
-              {item.description}
-            </div>
+            <div className="main-wrapper-content-text">{item.description}</div>
           </div>
         ))}
       </div>
