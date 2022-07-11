@@ -3,7 +3,7 @@ import * as React from "react";
 const likeComponent = (props) => (
   <svg
     aria-label="Нравится"
-    class="_ab6-"
+    className="_ab6-"
     color="#8e8e8e"
     fill="#8e8e8e"
     height="24"
