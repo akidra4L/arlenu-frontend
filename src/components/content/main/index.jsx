@@ -7,11 +7,11 @@ export const Main = () => {
   const [items, setItems] = useState([]);
 
   const [like, setLike] = useState({
-    likes: 0,
+    likes: "",
   });
   const [isLiked, setIsLiked] = useState(false);
 
-  function handleLike() {
+  const handleLike = (id) => {
     if (isLiked) {
       setIsLiked(false);
       setLike(like - 1);
@@ -19,7 +19,7 @@ export const Main = () => {
       setIsLiked(true);
       setLike(like + 1);
     }
-  }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -43,7 +43,12 @@ export const Main = () => {
               </div>
               <div className="main-wrapper-content-user-like">
                 {item.likes}
-                <button onClick={handleLike}>
+                <button
+                  onClick={() => {
+                    handleLike(item._id);
+                    console.log("clicked", item._id);
+                  }}
+                >
                   <Like />
                 </button>
               </div>

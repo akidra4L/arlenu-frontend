@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { createItem } from "../../../functions";
 import FileBase65 from "react-file-base64";
 
-import tshirt from "../../../assets/shirt.jpg";
+import { createItem } from "../../../functions";
 
 export const Add = () => {
   const [itemToAdd, setItemToAdd] = useState({
@@ -40,9 +39,3 @@ export const Add = () => {
     </div>
   );
 };
-
-{
-  /* <div className="file-wrapper-block">
-  <img src={tshirt} alt="tshirt" />
-</div>; */
-}
