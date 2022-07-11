@@ -1,10 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { getItems } from "../../../functions";
 
-import tshirt from "../../../assets/shirt.jpg";
+import Like from "../../../icons/like.js";
 
 export const Main = () => {
   const [items, setItems] = useState([]);
+
+  const [like, setLike] = useState({
+    likes: 0,
+  });
+  const [isLiked, setIsLiked] = useState(false);
+
+  function handleLike() {
+    if (isLiked) {
+      setIsLiked(false);
+      setLike(like - 1);
+    } else {
+      setIsLiked(true);
+      setLike(like + 1);
+    }
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,10 +39,13 @@ export const Main = () => {
             </div>
             <div className="main-wrapper-content-user">
               <div className="main-wrapper-content-user-nickname">
-                @{item.nickname}
+                @{item.title}
               </div>
-              <div className="main-wrapper-content-user-title">
-                {item.title}
+              <div className="main-wrapper-content-user-like">
+                {item.likes}
+                <button onClick={handleLike}>
+                  <Like />
+                </button>
               </div>
             </div>
             <div className="main-wrapper-content-text">{item.description}</div>

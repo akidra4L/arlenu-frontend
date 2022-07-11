@@ -1,11 +1,11 @@
 import { Dropdown, Navbar } from "flowbite-react";
 import { Link } from "react-router-dom";
 
-import IconProfile from "../../icons/profile";
+import IconProfile from "../../icons/profile.js";
 
 import { NavbarCollapse } from "./NavbarCollapse";
 
-import { useWindowSize } from "../../utils/useWindowSize";
+import { useWindowSize } from "../../functions/useWindowSize";
 
 export const NavBar = () => {
   const currentWindowSize = useWindowSize();

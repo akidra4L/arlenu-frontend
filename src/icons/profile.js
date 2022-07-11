@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const SvgComponent = (props) => (
+const profileComponent = (props) => (
 	<svg
 		viewBox="0 0 24 24"
 		aria-hidden="true"
@@ -15,4 +15,4 @@ const SvgComponent = (props) => (
 	</svg>
 );
 
-export default SvgComponent;
+export default profileComponent;
