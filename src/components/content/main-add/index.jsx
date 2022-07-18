@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import FileBase65 from "react-file-base64";
 
 import { createItem } from "../../../functions";
@@ -13,7 +13,7 @@ export const Add = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const result = await createItem(itemToAdd);
-    alert("Success.");
+    window.location.href = '/';
   }
 
   return (
@@ -24,7 +24,7 @@ export const Add = () => {
             <input type="text" placeholder="Название" id="title"
               onChange={e => setItemToAdd({ ...itemToAdd, title: e.target.value })}
             />
-            <input type="text" placeholder="Описание" id="description"
+            <textarea type="text" placeholder="Описание" id="description"
               onChange={e => setItemToAdd({ ...itemToAdd, description: e.target.value })}
             />
             <FileBase65

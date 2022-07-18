@@ -1,4 +1,4 @@
-import * as api from "../api";
+import * as api from "../services";
 
 export const getItems = async () => {
   try {
@@ -12,6 +12,15 @@ export const getItems = async () => {
 export const createItem = async (item) => {
   try {
     const { data } = await api.createItem(item);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const loginUser = async (user) => {
+  try {
+    const { data } = await api.loginUser(user);
     return data;
   } catch (error) {
     console.log(error);

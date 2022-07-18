@@ -1,21 +1,66 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+
+import URL from "../../../config/url";
 
 export const SignUp = () => {
+  const [name, setName] = useState("");
+  const [nickname, setNickname] = useState("");
+  const [password, setPassword] = useState("");
+
+  const registerUser = async (e) => {
+    e.preventDefault();
+    const response = await fetch(`${URL}/sign-up`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        nickname,
+        password,
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
+    setName("");
+    setNickname("");
+    setPassword("");
+    window.location.replace("/sign-in");
+  };
+
   return (
     <div className="sign">
-      <div className="sign-wrapper">
-        <div className="sign-wrapper-login">
-          <input type="text" placeholder="Имя" required />
+      <form onSubmit={registerUser}>
+        <div className="sign-wrapper">
+          <div className="sign-wrapper-login">
+            <input
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              type="text"
+              placeholder="Имя"
+            />
+          </div>
+          <div className="sign-wrapper-login">
+            <input
+              value={nickname}
+              onChange={(e) => setNickname(e.target.value)}
+              type="text"
+              placeholder="Логин"
+            />
+          </div>
+          <div className="sign-wrapper-password">
+            <input
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+              placeholder="Пароль"
+            />
+          </div>
+          <button type="submit" id="btn">
+            Регистрация
+          </button>
         </div>
-        <div className="sign-wrapper-login">
-          <input type="text" placeholder="Логин" required />
-        </div>
-        <div className="sign-wrapper-password">
-          <input type="password" placeholder="Пароль" required />
-        </div>
-        <button id="btn">Регистрация</button>
-      </div>
+      </form>
     </div>
   );
 };

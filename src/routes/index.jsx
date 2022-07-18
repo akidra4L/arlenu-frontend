@@ -7,7 +7,7 @@ import { SignIn } from "../components/content/nav-sign-in";
 import { SignUp } from "../components/content/nav-sign-up";
 import { MyProjects } from "../components/content/my-projects";
 
-export const RouteList = () => (
+export const PublicRouteList = () => (
   <Routes>
     <Route path="/" element={<Main />} />
 
@@ -15,9 +15,19 @@ export const RouteList = () => (
 
     <Route path="/faq" element={<FAQ />} />
 
-    <Route path="/sign-in" element={<SignIn />} />
+    <Route path="/sign-in" element={<SignIn />} exact={true} />
 
     <Route path="/sign-up" element={<SignUp />} />
+  </Routes>
+);
+
+export const PrivateRouteList = () => (
+  <Routes>
+    <Route path="/" element={<Main />} />
+
+    <Route path="/add" element={<Add />} />
+
+    <Route path="/faq" element={<FAQ />} />
 
     <Route path="/my-projects" element={<MyProjects />} />
   </Routes>

@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Dropdown, Navbar } from "flowbite-react";
 import { Link } from "react-router-dom";
 
@@ -9,6 +10,18 @@ import { useWindowSize } from "../../functions/useWindowSize";
 
 export const NavBar = () => {
   const currentWindowSize = useWindowSize();
+
+  const [user, setUser] = useState({
+    nickname: "",
+    token: "",
+  });
+
+  useEffect(() => {
+    const userData = JSON.parse(localStorage.getItem("token"));
+    if (!userData) {
+      console.log("User is not registered.");
+    }
+  }, [user]);
 
   return (
     <header className="nav">

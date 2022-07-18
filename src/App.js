@@ -1,16 +1,36 @@
 import { NavBar } from "./components/navbar";
 import { Footer } from "./components/footer";
-import { RouteList } from "./routes";
+import { PublicRouteList } from "./routes";
 import { BrowserRouter } from "react-router-dom";
+import { AuthContext } from "./context/AuthContext";
+import { useEffect, useState } from "react";
+import { AppRouter } from "./AppRouter";
 
-const App = () => (
-  <BrowserRouter>
-    <NavBar />
-    <main>
-      <RouteList />
-    </main>
-    <Footer />
-  </BrowserRouter>
-);
+function App() {
+  const [isAuth, setIsAuth] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      setIsAuth(true);
+    }
+  });
+
+  return (
+    <AuthContext.Provider
+      value={{
+        isAuth,
+        setIsAuth,
+      }}
+    >
+      <BrowserRouter>
+        <NavBar />
+        <main>
+          <AppRouter />
+        </main>
+        <Footer />
+      </BrowserRouter>
+    </AuthContext.Provider>
+  );
+}
 
 export default App;
