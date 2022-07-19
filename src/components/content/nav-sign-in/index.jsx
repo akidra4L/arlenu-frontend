@@ -11,7 +11,7 @@ export const SignIn = () => {
 
   const loginUser = async (e) => {
     e.preventDefault();
-    const response = await fetch(`${URL}/sign-in`, {
+    const response = await fetch(`${URL}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
