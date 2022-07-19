@@ -34,7 +34,7 @@ export const SignIn = () => {
       createTokenCookies(JSON.stringify(data));
       setIsAuth(true);
       setToken(jwt_decode(JSON.stringify(data)));
-      // window.location.href = "/";
+      window.location.href = "/";
     } else if (response.status === 400) {
       setNickname("");
       setPassword("");

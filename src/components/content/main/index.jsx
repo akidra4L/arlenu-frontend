@@ -22,7 +22,7 @@ export const Main = () => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await getItems();
-      setItems(result);
+      setItems(result ?? []);
     };
     fetchData();
   }, []);

@@ -46,7 +46,7 @@ export const NavBar = () => {
           <div className="nav-user">
             <Dropdown inline={true} label={<IconProfile alt="User settings" />}>
               <Dropdown.Header className="nav-user-header">
-                <span className="nav-user-header-span">{token.nickname}</span>
+                <span className="nav-user-header-span"></span>
                 <span className="nav-user-header-span lighter">
                   name@gmail.com
                 </span>

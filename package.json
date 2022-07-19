@@ -10,7 +10,6 @@
     "dotenv": "^16.0.1",
     "flowbite": "^1.4.7",
     "flowbite-react": "^0.0.27",
-    "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^3.1.2",
     "nookies": "^2.5.2",
     "react": "^18.2.0",
