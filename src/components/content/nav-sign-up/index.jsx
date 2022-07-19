@@ -9,7 +9,7 @@ export const SignUp = () => {
 
   const registerUser = async (e) => {
     e.preventDefault();
-    const response = await fetch(`${URL}/sign-up`, {
+    const response = await fetch(`${URL}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
