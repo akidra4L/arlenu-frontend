@@ -1,6 +1,5 @@
 import { NavBar } from "./components/navbar";
 import { Footer } from "./components/footer";
-import { PublicRouteList } from "./routes";
 import { BrowserRouter } from "react-router-dom";
 import { AuthContext } from "./context/AuthContext";
 import { useEffect, useState } from "react";
