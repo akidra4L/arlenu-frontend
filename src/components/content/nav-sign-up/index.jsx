@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import URL from "../../../config/url";
 
 export const SignUp = () => {

@@ -1,27 +1,31 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Dropdown, Navbar } from "flowbite-react";
 import { Link } from "react-router-dom";
-
-import IconProfile from "../../icons/profile.js";
-
+import { AuthContext, TokenContext } from "../../context/AuthContext";
 import { NavbarCollapse } from "./NavbarCollapse";
-
 import { useWindowSize } from "../../functions/useWindowSize";
+import IconProfile from "../../icons/profile.js";
+import { removeTokenCookies } from "../../utils/tokenCookies";
 
 export const NavBar = () => {
+  const { isAuth } = useContext(AuthContext);
+  const { token } = useContext(TokenContext);
   const currentWindowSize = useWindowSize();
 
-  const [user, setUser] = useState({
-    nickname: "",
-    token: "",
-  });
+  const [user, setUser] = useState({});
 
   useEffect(() => {
-    const userData = JSON.parse(localStorage.getItem("token"));
+    const userData = JSON.parse(localStorage.getItem("user"));
     if (!userData) {
       console.log("User is not registered.");
     }
   }, [user]);
+
+  const signOut = () => {
+    removeTokenCookies();
+    localStorage.removeItem("token");
+    window.location.href = "/";
+  };
 
   return (
     <header className="nav">
@@ -38,37 +42,38 @@ export const NavBar = () => {
         <Navbar.Toggle />
         {currentWindowSize.width >= 720 && <NavbarCollapse />}
 
-        <div className="nav-user">
-          <Dropdown inline={true} label={<IconProfile alt="User settings" />}>
-            <Link to="/sign-in">
-              <Dropdown.Item>
-                <span className="nav-user-header-span">Войти</span>
-              </Dropdown.Item>
-            </Link>
-            <Link to="/sign-up">
-              <Dropdown.Item>
-                <span className="nav-user-header-span">Регистрация</span>
-              </Dropdown.Item>
-            </Link>
-          </Dropdown>
-        </div>
-
-        {/* <div className="nav-user">
+        {isAuth ? (
+          <div className="nav-user">
             <Dropdown inline={true} label={<IconProfile alt="User settings" />}>
               <Dropdown.Header className="nav-user-header">
-                <span className="nav-user-header-span">
-                  Alikhan Gubayev
-                </span>
+                <span className="nav-user-header-span">{token.nickname}</span>
                 <span className="nav-user-header-span lighter">
                   name@gmail.com
                 </span>
               </Dropdown.Header>
-              <Dropdown.Item>
-                <Link to="/my-projects">Мои проекты</Link>
-              </Dropdown.Item>
-              <Dropdown.Item>Выйти</Dropdown.Item>
+              <Link to="/my-projects">
+                <Dropdown.Item>Мои проекты</Dropdown.Item>
+              </Link>
+              <Dropdown.Item onClick={signOut}>Выйти</Dropdown.Item>
             </Dropdown>
-          </div> */}
+          </div>
+        ) : (
+          <div className="nav-user">
+            <Dropdown inline={true} label={<IconProfile alt="User settings" />}>
+              <Link to="/sign-in">
+                <Dropdown.Item>
+                  <span className="nav-user-header-span">Войти</span>
+                </Dropdown.Item>
+              </Link>
+              <Link to="/sign-up">
+                <Dropdown.Item>
+                  <span className="nav-user-header-span">Регистрация</span>
+                </Dropdown.Item>
+              </Link>
+            </Dropdown>
+          </div>
+        )}
+
         {currentWindowSize.width < 720 && <NavbarCollapse />}
       </Navbar>
     </header>

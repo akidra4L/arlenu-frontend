@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import URL from "../../../config/url";
 import { useContext } from "react";
-import { AuthContext } from "../../../context/AuthContext";
+import { AuthContext, TokenContext } from "../../../context/AuthContext";
+import { createTokenCookies } from "../../../utils/tokenCookies";
+import jwt_decode from "jwt-decode";
 
 export const SignIn = () => {
   const { isAuth, setIsAuth } = useContext(AuthContext);
+  const { token, setToken } = useContext(TokenContext);
 
   const [nickname, setNickname] = useState("");
   const [password, setPassword] = useState("");
@@ -28,8 +31,10 @@ export const SignIn = () => {
       setNickname("");
       setPassword("");
       localStorage.setItem("token", JSON.stringify(data));
+      createTokenCookies(JSON.stringify(data));
       setIsAuth(true);
-      window.location.href = "/";
+      setToken(jwt_decode(JSON.stringify(data)));
+      // window.location.href = "/";
     } else if (response.status === 400) {
       setNickname("");
       setPassword("");

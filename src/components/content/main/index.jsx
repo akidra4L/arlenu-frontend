@@ -37,7 +37,7 @@ export const Main = () => {
             </div>
             <div className="main-wrapper-content-user">
               <div className="main-wrapper-content-user-nickname">
-                @{item.title}
+                @{item.nickname}
               </div>
               <div className="main-wrapper-content-user-like">
                 {like}

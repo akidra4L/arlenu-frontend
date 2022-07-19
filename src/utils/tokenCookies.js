@@ -9,7 +9,7 @@ export function createTokenCookies(token) {
 }
 
 export function removeTokenCookies() {
-  destroyCookie(null, COOKIE_EXPIRATION_TIME);
+  destroyCookie(null, TOKEN_COOKIE);
 }
 
 export function getToken() {
