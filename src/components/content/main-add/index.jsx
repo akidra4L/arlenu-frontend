@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useContext } from "react";
 import FileBase65 from "react-file-base64";
 import { TokenContext } from "../../../context/AuthContext";
+import Swal from "sweetalert2";
 
 import { createItem } from "../../../functions";
 
@@ -16,7 +17,14 @@ export const Add = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const result = await createItem({ ...itemToAdd });
-    window.location.href = "/";
+    Swal.fire({
+      title: "Успешно",
+      text: "Добавлено в коллекцию",
+      icon: "success",
+    }).then(() => {
+      window.location.href = "/";
+    });
+    setItemToAdd({ title: "", description: "", image: "" });
   };
 
   return (
