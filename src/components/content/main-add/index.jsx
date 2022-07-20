@@ -15,7 +15,7 @@ export const Add = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const result = await createItem({ ...itemToAdd, nickname: token.nickname });
+    const result = await createItem({ ...itemToAdd });
     window.location.href = "/";
   };
 

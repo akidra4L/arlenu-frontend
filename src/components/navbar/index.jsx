@@ -6,6 +6,7 @@ import { NavbarCollapse } from "./NavbarCollapse";
 import { useWindowSize } from "../../functions/useWindowSize";
 import IconProfile from "../../icons/profile.js";
 import { removeTokenCookies } from "../../utils/tokenCookies";
+import jwt_decode from "jwt-decode";
 
 export const NavBar = () => {
   const { isAuth } = useContext(AuthContext);
@@ -15,11 +16,14 @@ export const NavBar = () => {
   const [user, setUser] = useState({});
 
   useEffect(() => {
-    const userData = JSON.parse(localStorage.getItem("user"));
+    const userData = JSON.parse(localStorage.getItem("token"));
     if (!userData) {
       console.log("User is not registered.");
+    } else {
+      // console.log("jwt_decode: ", jwt_decode(JSON.stringify(userData)));
+      setUser(jwt_decode(JSON.stringify(userData)));
     }
-  }, [user]);
+  }, []);
 
   const signOut = () => {
     removeTokenCookies();
@@ -46,10 +50,7 @@ export const NavBar = () => {
           <div className="nav-user">
             <Dropdown inline={true} label={<IconProfile alt="User settings" />}>
               <Dropdown.Header className="nav-user-header">
-                <span className="nav-user-header-span"></span>
-                <span className="nav-user-header-span lighter">
-                  name@gmail.com
-                </span>
+                <span className="nav-user-header-span">{user.nickname}</span>
               </Dropdown.Header>
               <Link to="/my-projects">
                 <Dropdown.Item>Мои проекты</Dropdown.Item>

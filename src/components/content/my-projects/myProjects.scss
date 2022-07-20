@@ -1,0 +1,10 @@
+.projects {
+    padding: 24px;
+    display: flex;
+
+    &-wrapper {
+        padding-top: 30px;
+        column-count: 4;
+        column-gap: 10px;
+    }
+}

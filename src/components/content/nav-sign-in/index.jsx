@@ -25,8 +25,8 @@ export const SignIn = () => {
       }),
     });
     const data = await response.json();
-    console.log(data);
-    console.log(response);
+    // console.log(data);
+    // console.log(response);
     if (response.status === 200) {
       setNickname("");
       setPassword("");
@@ -34,6 +34,7 @@ export const SignIn = () => {
       createTokenCookies(JSON.stringify(data));
       setIsAuth(true);
       setToken(jwt_decode(JSON.stringify(data)));
+      console.log("jwt_decode: ", jwt_decode(JSON.stringify(data)));
       window.location.href = "/";
     } else if (response.status === 400) {
       setNickname("");
